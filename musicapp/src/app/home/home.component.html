@@ -1,0 +1,22 @@
+<div class="text-center mt-5">
+  <p>You currently have:</p>
+  <ul class="list-unstyled">
+    <li><strong>{{ artistCount }}</strong> artist(s)</li>
+    <li><strong>{{ albumCount }}</strong> album(s)</li>
+  </ul>
+
+  <div *ngIf="featuredAlbums.length > 0">
+    <h3>🎧 Featured Albums</h3>
+    <ul class="list-group w-50 mx-auto">
+      <li class="list-group-item" *ngFor="let album of featuredAlbums">
+        <strong>{{ album.album_title }}</strong> by {{ album.artist }} ({{ album.year }})
+      </li>
+    </ul>
+  </div>
+
+  <div class="mt-4">
+    <a routerLink="/list-artists" class="btn btn-outline-primary m-2">View All Artists</a>
+    <a routerLink="/list-albums" class="btn btn-outline-success m-2">View All Albums</a>
+    <a routerLink="/create" class="btn btn-outline-secondary m-2">Add New Album</a>
+  </div>
+</div>

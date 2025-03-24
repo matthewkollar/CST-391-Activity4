@@ -1,0 +1,46 @@
+<div class="container mt-4" *ngIf="!wasSubmitted">
+  <h2>Add New Album</h2>
+  <form (ngSubmit)="onSubmit()" #createForm="ngForm">
+
+    <div class="form-group mb-3">
+      <label for="artist">Artist</label>
+      <select id="artist" class="form-control" required [(ngModel)]="album.artist_id" name="artist_id">
+        <option *ngFor="let a of artists" [value]="a.id">{{ a.artist }}</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="album">Album Title</label>
+      <input id="album" type="text" class="form-control" required [(ngModel)]="album.album_title" name="album_title">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="description">Description</label>
+      <textarea id="description" rows="3" class="form-control" required [(ngModel)]="album.description" name="description"></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="year">Year</label>
+      <input id="year" type="number" class="form-control" required [(ngModel)]="album.year" name="year">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="image">Image Filename</label>
+      <input id="image" type="text" class="form-control" [(ngModel)]="album.image_name" name="image_name">
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="tracks">Tracks (one per line)</label>
+      <textarea id="tracks" rows="4" class="form-control" required [(ngModel)]="tracksRaw" name="tracks"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Album</button>
+  </form>
+</div>
+
+<div class="container mt-4" *ngIf="wasSubmitted">
+  <div class="alert alert-success">
+    ✅ Album was added successfully!
+  </div>
+  <a routerLink="/list-albums" class="btn btn-outline-success">Back to Albums</a>
+</div>

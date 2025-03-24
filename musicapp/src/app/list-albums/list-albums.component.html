@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2>📀 Album List</h2>
+
+  <div *ngIf="albums.length === 0">
+    <p>No albums found.</p>
+  </div>
+
+  <ul class="list-group" *ngIf="albums.length > 0">
+    <li class="list-group-item" *ngFor="let album of albums">
+      <a [routerLink]="['/display', album.id]" class="fw-bold text-decoration-none">
+        {{ album.album_title }}
+      </a> by {{ album.artist }} ({{ album.year }})
+    </li>
+  </ul>
+</div>

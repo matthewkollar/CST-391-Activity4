@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <h2>🎤 Artist List</h2>
+
+  <ul class="list-group">
+    <li *ngFor="let artist of artists" class="list-group-item">
+      {{ artist.artist }}
+    </li>
+  </ul>
+
+  <div *ngIf="artists.length === 0" class="text-muted mt-3">
+    No artists found.
+  </div>
+</div>
